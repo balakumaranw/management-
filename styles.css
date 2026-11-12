@@ -456,25 +456,23 @@ h3 {
   min-height: 100%;
   width: auto;
   height: auto;
-  transform: translate(-50%, -50%) scale(1.05);
+  transform: translate(-50%, -50%);
   object-fit: cover;
-  opacity: 0.42;
-  filter: contrast(1.08) brightness(1.05) saturate(1.15);
-  transition: opacity 1s ease;
+  opacity: 0.78;
+  filter: contrast(1.14) brightness(1.02) saturate(1.25);
+  transition: opacity 0.8s ease;
 }
 
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 45%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.94) 100%);
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px);
+  background: radial-gradient(ellipse at 25% 45%, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.65) 45%, rgba(255, 255, 255, 0.25) 85%, rgba(255, 255, 255, 0.5) 100%);
 }
 
 .hero-video-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 35%, rgba(255, 255, 255, 0.85) 75%, #ffffff 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.1) 35%, rgba(255, 255, 255, 0.4) 70%, #ffffff 100%);
 }
 
 .hero-video-grid-pattern {
