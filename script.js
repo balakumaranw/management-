@@ -19,6 +19,7 @@ function init() {
   try { initScrollReveal(); } catch(e) { console.warn(e); }
   try { initHeroVideo(); } catch(e) { console.warn(e); }
   try { initLiveTicker(); } catch(e) { console.warn(e); }
+  try { initHeroInteractions(); } catch(e) { console.warn(e); }
 }
 
 function initAssetVerification() {
@@ -517,4 +518,89 @@ function initLiveTicker() {
     activeIdx = (activeIdx + 1) % tickerItems.length;
     tickerItems[activeIdx].classList.add('active');
   }, 3200);
+}
+
+
+/* ==========================================================================
+   11. HERO VIDEO CONTROLLER & DASHBOARD MODE SWITCHER
+   ========================================================================== */
+
+function initHeroInteractions() {
+  const vid = document.getElementById('heroBgVideo');
+  const switchBtn = document.getElementById('switchReelBtn');
+  const playPauseBtn = document.getElementById('playPauseVideoBtn');
+  const playPauseText = document.getElementById('playPauseText');
+  const activeReelName = document.getElementById('activeReelName');
+
+  const reels = [
+    {
+      name: 'San Francisco Skyline',
+      local: 'assets/hero-city.webm',
+      cdn: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/City_skyline_%28time_lapse%29.webm'
+    },
+    {
+      name: 'Tokyo High-Rise Tower',
+      local: 'assets/hero-luxury.webm',
+      cdn: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Timelapse_of_high-rise_buildings_in_Tokyo.webm'
+    }
+  ];
+
+  let currentReelIdx = 0;
+
+  if (vid && switchBtn) {
+    switchBtn.addEventListener('click', () => {
+      currentReelIdx = (currentReelIdx + 1) % reels.length;
+      const target = reels[currentReelIdx];
+      if (activeReelName) activeReelName.textContent = target.name;
+      
+      vid.style.opacity = '0.3';
+      setTimeout(() => {
+        // Change source
+        vid.innerHTML = '<source src="' + target.local + '" type="video/webm"><source src="' + target.cdn + '" type="video/webm">';
+        vid.load();
+        vid.play().catch(() => {});
+        vid.style.opacity = '1';
+      }, 300);
+    });
+  }
+
+  if (vid && playPauseBtn) {
+    playPauseBtn.addEventListener('click', () => {
+      if (vid.paused) {
+        vid.play();
+        if (playPauseText) playPauseText.textContent = '⏸ Pause';
+      } else {
+        vid.pause();
+        if (playPauseText) playPauseText.textContent = '▶ Play';
+      }
+    });
+  }
+
+  // Dashboard Tab Switcher: Growth Telemetry vs BG Bot Live Sim
+  const tabTelemetry = document.getElementById('tabTelemetry');
+  const tabBotSim = document.getElementById('tabBotSim');
+  const viewTelemetry = document.getElementById('viewTelemetry');
+  const viewBotSim = document.getElementById('viewBotSim');
+
+  if (tabTelemetry && tabBotSim && viewTelemetry && viewBotSim) {
+    tabTelemetry.addEventListener('click', () => {
+      tabTelemetry.classList.add('active');
+      tabTelemetry.setAttribute('aria-selected', 'true');
+      tabBotSim.classList.remove('active');
+      tabBotSim.setAttribute('aria-selected', 'false');
+
+      viewTelemetry.style.display = 'block';
+      viewBotSim.style.display = 'none';
+    });
+
+    tabBotSim.addEventListener('click', () => {
+      tabBotSim.classList.add('active');
+      tabBotSim.setAttribute('aria-selected', 'true');
+      tabTelemetry.classList.remove('active');
+      tabTelemetry.setAttribute('aria-selected', 'false');
+
+      viewTelemetry.style.display = 'none';
+      viewBotSim.style.display = 'block';
+    });
+  }
 }

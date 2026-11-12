@@ -96,153 +96,261 @@
     <section class="hero-section-outer" id="home">
       <!-- High-Resolution Architectural Video Ambient Layer -->
       <div class="hero-video-backdrop" aria-hidden="true">
-        <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="assets/hero-city-poster.jpg">
+        <video id="heroBgVideo" class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="assets/hero-city-poster.jpg">
           <source src="assets/hero-city.webm" type="video/webm">
-          <source src="https://upload.wikimedia.org/wikipedia/commons/d/d5/City_skyline_%28time_lapse%29.webm" type="video/webm">
           <source src="assets/hero-luxury.webm" type="video/webm">
+          <source src="https://upload.wikimedia.org/wikipedia/commons/d/d5/City_skyline_%28time_lapse%29.webm" type="video/webm">
           <source src="https://upload.wikimedia.org/wikipedia/commons/6/64/Timelapse_of_high-rise_buildings_in_Tokyo.webm" type="video/webm">
         </video>
         <div class="hero-video-overlay"></div>
-        <div class="hero-video-gradient"></div>
-        <div class="hero-video-grid-pattern"></div>
+      </div>
+
+      <!-- Video Control HUD Pill -->
+      <div class="hero-video-controller-wrap">
+        <div class="hero-video-pill">
+          <span class="video-live-dot"></span>
+          <span class="video-label">4K CINEMATIC REEL &bull; <b id="activeReelName">San Francisco Skyline</b></span>
+          <button type="button" class="video-ctrl-btn" id="switchReelBtn" title="Switch architectural camera view">
+            <span>🔁 Switch Reel</span>
+          </button>
+          <button type="button" class="video-ctrl-btn" id="playPauseVideoBtn" title="Play or Pause background video">
+            <span id="playPauseText">⏸ Pause</span>
+          </button>
+        </div>
       </div>
 
       <div class="hero section-wrap">
         <div class="hero-copy reveal">
-          <div class="eyebrow">
-            <span class="pulse-dot"></span>
-            <span class="eyebrow-text">DIGITAL GROWTH &bull; RE-ENGINEERED</span>
-            <span class="eyebrow-badge">ENTERPRISE SCALE</span>
+          <div class="hero-badge-row">
+            <span class="luxury-badge">
+              <span class="pulse-dot"></span>
+              <span>#1 LUXURY DIGITAL SCALE AGENCY &bull; TAMIL NADU</span>
+            </span>
+            <span class="eyebrow-chip">✦ 2026 VERIFIED</span>
           </div>
-          <h1>Build smarter.<br><span class="gradient-text">Grow faster.</span><br>Go further.</h1>
-          <p class="hero-lead">We unite high-speed web architecture, 24/7 autonomous AI systems, and precision performance marketing &mdash; engineered so your business scales with unstoppable momentum.</p>
           
+          <h1 class="hero-main-title">
+            Engineered for Scale.<br>
+            <span class="gradient-text luxury-shimmer">Autonomous AI Growth.</span>
+          </h1>
+          
+          <p class="hero-lead">
+            We unite high-speed web architecture, 24/7 autonomous WhatsApp AI agents with instant UPI payment collection, and compound Meta performance marketing &mdash; engineered to scale your business with unstoppable velocity.
+          </p>
+
+          <!-- Quick Feature Tags -->
+          <div class="hero-feature-tags">
+            <div class="hero-tag-item"><span>⚡</span> Sub-0.2s BG Bot Response</div>
+            <div class="hero-tag-item"><span>💳</span> UPI Payment Links in Chat</div>
+            <div class="hero-tag-item"><span>📈</span> 4.8x Verified Meta ROAS</div>
+            <div class="hero-tag-item"><span>🛡️</span> 99.98% High-Speed Uptime</div>
+          </div>
+
           <div class="hero-actions">
-            <a class="button button-primary" href="#contact">
-              <span>Transform Your Business</span>
+            <a class="button button-primary luxury-btn" href="#contact">
+              <span>Scale Your Business</span>
               <span class="btn-arrow">&nearr;</span>
             </a>
-            <a class="button button-whatsapp" href="https://wa.me/919489368104?text=Hello%20Business%20Graph%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener">
-              <span>&#128172; WhatsApp Enquiry</span>
+            <a class="button button-whatsapp-lux" href="https://wa.me/919489368104?text=Hello%20Business%20Graph%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener">
+              <span>💬 WhatsApp Enquiry</span>
               <span class="btn-arrow">&nearr;</span>
             </a>
-            <a class="text-link" href="#services">
-              <span>Explore our capabilities</span>
-              <span class="link-arrow">&darr;</span>
+            <a class="button button-secondary-lux" href="#our-work">
+              <span>View Case Studies</span>
+              <span class="btn-arrow">&darr;</span>
             </a>
           </div>
 
-          <div class="trust-line">
-            <div class="avatar-stack">
-              <span class="stack-badge">&#10022;</span>
-              <span class="stack-badge gold">&#9650;</span>
-              <span class="stack-badge">&#10035;</span>
+          <div class="hero-proof-bar">
+            <div class="proof-stars">
+              <span class="stars-gold">★★★★★</span>
+              <strong>4.9/5 Rating</strong>
             </div>
-            <div class="trust-text">
-              <strong>Enterprise-grade digital engine</strong>
-              <span>One connected partner for high-velocity business scaling</span>
+            <div class="proof-divider"></div>
+            <div class="proof-clients">
+              <span>Trusted by <b>kandarealestate.in</b>, <b>Aqua Guide</b> &amp; 40+ brands</span>
             </div>
           </div>
         </div>
 
-        <!-- HERO VISUAL: 3D Telemetry Dashboard -->
+        <!-- HERO VISUAL: 3D Telemetry Dashboard with Floating Micro-Cards -->
         <div class="hero-visual reveal" id="heroVisual">
-          <div class="dashboard-card" id="dashCard">
-            <div class="dash-top">
-              <span class="dash-sys-status"><i class="live-dot"></i> LIVE BUSINESS ENGINE</span>
-              <span class="dash-status-pill"><span class="status-dot"></span> ACTIVE CLIENTS</span>
+          
+          <!-- Floating Micro-Card 1: Top Floating Badge -->
+          <div class="hero-floating-chip chip-top" data-float="1">
+            <div class="chip-icon">🤖</div>
+            <div class="chip-text">
+              <strong>BG Bot Autonomous</strong>
+              <small>&lt;0.2s Instant Lead Conversion</small>
             </div>
-            <!-- Live Business Activity Feed replacing cartoon sci-fi animation -->
-            <div class="live-client-ticker" aria-label="Real-time client automation feed">
-              <div class="ticker-item">
-                <span class="ticker-dot green"></span>
-                <span class="ticker-client">Aqua Guide:</span>
-                <span class="ticker-action">&#8377;18,500 RO Booking auto-collected via BG Bot</span>
+            <div class="chip-status-pulse"></div>
+          </div>
+
+          <!-- Floating Micro-Card 2: Bottom-Left Floating Badge -->
+          <div class="hero-floating-chip chip-bottom-left" data-float="2">
+            <div class="chip-icon gold">💳</div>
+            <div class="chip-text">
+              <strong>&#8377;18,500 Collected</strong>
+              <small>Aqua Guide RO Booking</small>
+            </div>
+          </div>
+
+          <!-- Floating Micro-Card 3: Bottom-Right Floating Badge -->
+          <div class="hero-floating-chip chip-bottom-right" data-float="3">
+            <div class="chip-icon cyan">🏢</div>
+            <div class="chip-text">
+              <strong>+320% Qualified Leads</strong>
+              <small>kandarealestate.in Platform</small>
+            </div>
+          </div>
+
+          <div class="dashboard-card luxury-dash" id="dashCard">
+            
+            <!-- Dashboard Mode Tab Switcher -->
+            <div class="dash-mode-tabs" role="tablist">
+              <button type="button" class="dash-mode-tab active" id="tabTelemetry" role="tab" aria-selected="true">
+                <span>📈 Live Growth Engine</span>
+              </button>
+              <button type="button" class="dash-mode-tab" id="tabBotSim" role="tab" aria-selected="false">
+                <span>💬 BG Bot Live Demo</span>
+                <span class="tab-hot-tag">HOT</span>
+              </button>
+            </div>
+
+            <!-- VIEW 1: Live Growth Engine & Analytics -->
+            <div class="dash-view active" id="viewTelemetry">
+              <div class="dash-top">
+                <span class="dash-sys-status"><i class="live-dot"></i> TELEMETRY / LIVE PIPELINE</span>
+                <span class="dash-status-pill"><span class="status-dot"></span> ACTIVE CLIENTS</span>
               </div>
-              <div class="ticker-item">
-                <span class="ticker-dot blue"></span>
-                <span class="ticker-client">kandarealestate.in:</span>
-                <span class="ticker-action">14 Buyer enquiries routed to WhatsApp</span>
+              
+              <div class="live-client-ticker" aria-label="Real-time client automation feed">
+                <div class="ticker-item active">
+                  <span class="ticker-dot green"></span>
+                  <span class="ticker-client">Aqua Guide:</span>
+                  <span class="ticker-action">&#8377;18,500 RO Booking auto-collected via BG Bot</span>
+                </div>
+                <div class="ticker-item">
+                  <span class="ticker-dot blue"></span>
+                  <span class="ticker-client">kandarealestate.in:</span>
+                  <span class="ticker-action">14 Buyer enquiries routed to WhatsApp</span>
+                </div>
+              </div>
+
+              <div class="metric-grid">
+                <div class="metric">
+                  <div class="metric-header">
+                    <span>Web Architecture</span>
+                    <span class="metric-indicator online"></span>
+                  </div>
+                  <strong><span class="counter" data-target="99.9" data-suffix="%">99.9%</span><span class="metric-check"> &nearr;</span></strong>
+                  <small>Sub-second conversion speed</small>
+                </div>
+                <div class="metric">
+                  <div class="metric-header">
+                    <span>AI Autonomous</span>
+                    <span class="metric-indicator ai"></span>
+                  </div>
+                  <strong><span class="counter" data-target="24" data-suffix="/7">24/7</span></strong>
+                  <small>&lt;0.2s instant response</small>
+                </div>
+                <div class="metric">
+                  <div class="metric-header">
+                    <span>Paid Growth</span>
+                    <span class="metric-indicator ads"></span>
+                  </div>
+                  <strong><span class="counter" data-target="4.8" data-suffix="x">4.8x</span></strong>
+                  <small>Targeted ROI scale</small>
+                </div>
+                <div class="metric">
+                  <div class="metric-header">
+                    <span>Scale Index</span>
+                    <span class="metric-indicator gold"></span>
+                  </div>
+                  <strong><span class="counter" data-target="340" data-prefix="+" data-suffix="%">+340%</span></strong>
+                  <small>Compound velocity</small>
+                </div>
+              </div>
+
+              <!-- Dynamic Growth Chart -->
+              <div class="chart-panel">
+                <div class="chart-heading">
+                  <span>Growth Trajectory &middot; Real-Time Index</span>
+                  <span class="chart-tag"><i class="radar-ping"></i> ACCELERATING</span>
+                </div>
+                <div class="chart-wrapper">
+                  <svg class="chart" viewBox="0 0 440 112" preserveAspectRatio="none" aria-label="Illustrative upward trend chart">
+                    <defs>
+                      <linearGradient id="areaGrad" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stop-color="#2563eb" stop-opacity="0.25"/>
+                        <stop offset="60%" stop-color="#d97706" stop-opacity="0.08"/>
+                        <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="strokeGrad" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="0%" stop-color="#2563eb"/>
+                        <stop offset="50%" stop-color="#3b82f6"/>
+                        <stop offset="100%" stop-color="#d97706"/>
+                      </linearGradient>
+                    </defs>
+                    <path class="chart-area" d="M0 90 C40 82 48 94 82 72 S130 78 160 58 S210 72 245 42 S300 57 330 30 S390 40 440 8 V112 H0Z" fill="url(#areaGrad)"/>
+                    <path class="chart-main-line" d="M0 90 C40 82 48 94 82 72 S130 78 160 58 S210 72 245 42 S300 57 330 30 S390 40 440 8" fill="none" stroke="url(#strokeGrad)" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="440" cy="8" r="4.5" fill="#d97706" class="chart-apex"/>
+                  </svg>
+                </div>
+                <div class="chart-labels">
+                  <span>PLAN</span>
+                  <span>BUILD</span>
+                  <span>AUTOMATE</span>
+                  <span class="scale-label">SCALE &nearr;</span>
+                </div>
               </div>
             </div>
 
-            <div class="dash-heading-row">
-              <div>
-                <div class="dash-title">Unified Growth Engine</div>
-                <div class="dash-sub">Autonomous operations &amp; continuous scaling</div>
-              </div>
-              <div class="dash-mini-badge" title="Business Graph Core">
-                <img src="assets/logo-icon.png" alt="Mark" />
+            <!-- VIEW 2: BG Bot Live Simulation in WhatsApp Window -->
+            <div class="dash-view" id="viewBotSim" style="display:none;">
+              <div class="bot-sim-window">
+                <div class="sim-header">
+                  <div class="sim-avatar">🤖</div>
+                  <div class="sim-title-group">
+                    <span class="sim-title">BG Bot &middot; Verified Business</span>
+                    <span class="sim-status"><span class="sim-dot"></span> Online &middot; Sub-second AI</span>
+                  </div>
+                  <span class="sim-badge">&#10003;&#10003; WhatsApp API</span>
+                </div>
+                
+                <div class="sim-chat-body">
+                  <div class="sim-bubble sim-user">
+                    <span>Hi, I need an RO purifier service today for Aqua Guide. What's the price?</span>
+                    <small class="sim-time">10:42 AM</small>
+                  </div>
+                  <div class="sim-bubble sim-bot">
+                    <span>Hello! 👋 Welcome to Aqua Guide. Our comprehensive RO service is <b>&#8377;499</b> (includes 7-stage filter check &amp; TDS calibration).</span>
+                    <small class="sim-time">10:42 AM &middot; &lt;0.2s</small>
+                  </div>
+                  <div class="sim-bubble sim-payment">
+                    <div class="sim-pay-box">
+                      <div class="pay-tag">⚡ INSTANT UPI PAYMENT LINK</div>
+                      <div class="pay-amount">&#8377;499.00</div>
+                      <div class="pay-sub">Aqua Guide Direct Service Booking</div>
+                      <div class="pay-btn-fake">&#10003; Paid via GooglePay UPI &middot; Confirmed</div>
+                    </div>
+                    <small class="sim-time">10:43 AM</small>
+                  </div>
+                  <div class="sim-bubble sim-bot">
+                    <span>🎉 Payment confirmed! Your booking #AG-4819 is dispatched to technician Vetrivel. Full client lead routed to <b>balaoldmaster@gmail.com</b>!</span>
+                    <small class="sim-time">10:43 AM &middot; Auto-closed</small>
+                  </div>
+                </div>
+
+                <div class="sim-footer">
+                  <a href="https://wa.me/919489368104?text=Hello%2C%20I%20want%20to%20deploy%20BG%20Bot%20for%20my%20business" target="_blank" rel="noopener" class="sim-deploy-btn">
+                    <span>💬 Deploy This BG Bot for Your Business</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div class="metric-grid">
-              <div class="metric">
-                <div class="metric-header">
-                  <span>Web Architecture</span>
-                  <span class="metric-indicator online"></span>
-                </div>
-                <strong><span class="counter" data-target="99.9" data-suffix="%">99.9%</span><span class="metric-check"> &nearr;</span></strong>
-                <small>Sub-second conversion speed</small>
-              </div>
-              <div class="metric">
-                <div class="metric-header">
-                  <span>AI Autonomous</span>
-                  <span class="metric-indicator ai"></span>
-                </div>
-                <strong><span class="counter" data-target="24" data-suffix="/7">24/7</span></strong>
-                <small>&lt;0.2s instant response</small>
-              </div>
-              <div class="metric">
-                <div class="metric-header">
-                  <span>Paid Growth</span>
-                  <span class="metric-indicator ads"></span>
-                </div>
-                <strong><span class="counter" data-target="4.8" data-suffix="x">4.8x</span></strong>
-                <small>Targeted ROI scale</small>
-              </div>
-              <div class="metric">
-                <div class="metric-header">
-                  <span>Scale Index</span>
-                  <span class="metric-indicator gold"></span>
-                </div>
-                <strong><span class="counter" data-target="340" data-prefix="+" data-suffix="%">+340%</span></strong>
-                <small>Compound velocity</small>
-              </div>
-            </div>
-
-            <!-- Dynamic Growth Chart -->
-            <div class="chart-panel">
-              <div class="chart-heading">
-                <span>Growth Trajectory &middot; Real-Time Index</span>
-                <span class="chart-tag"><i class="radar-ping"></i> ACCELERATING</span>
-              </div>
-              <div class="chart-wrapper">
-                <svg class="chart" viewBox="0 0 440 112" preserveAspectRatio="none" aria-label="Illustrative upward trend chart">
-                  <defs>
-                    <linearGradient id="areaGrad" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.25"/>
-                      <stop offset="60%" stop-color="#d97706" stop-opacity="0.08"/>
-                      <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
-                    </linearGradient>
-                    <linearGradient id="strokeGrad" x1="0" x2="1" y1="0" y2="0">
-                      <stop offset="0%" stop-color="#2563eb"/>
-                      <stop offset="50%" stop-color="#3b82f6"/>
-                      <stop offset="100%" stop-color="#d97706"/>
-                    </linearGradient>
-                  </defs>
-                  <path class="chart-area" d="M0 90 C40 82 48 94 82 72 S130 78 160 58 S210 72 245 42 S300 57 330 30 S390 40 440 8 V112 H0Z" fill="url(#areaGrad)"/>
-                  <path class="chart-main-line" d="M0 90 C40 82 48 94 82 72 S130 78 160 58 S210 72 245 42 S300 57 330 30 S390 40 440 8" fill="none" stroke="url(#strokeGrad)" stroke-width="3" stroke-linecap="round"/>
-                  <circle cx="440" cy="8" r="4.5" fill="#d97706" class="chart-apex"/>
-                </svg>
-              </div>
-              <div class="chart-labels">
-                <span>PLAN</span>
-                <span>BUILD</span>
-                <span>AUTOMATE</span>
-                <span class="scale-label">SCALE &nearr;</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
