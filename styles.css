@@ -492,15 +492,16 @@ h3 {
   gap: 56px;
 }
 
-/* BG-Removed Fonts — pure typography floating directly over the luxury 4K video */
+/* Luxury Executive Service Card for Hero */
 .hero-copy {
   flex: 1.15;
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 26px;
+  padding: 36px 34px;
+  box-shadow: 0 24px 64px -12px rgba(15, 23, 42, 0.16), 0 4px 16px rgba(15, 23, 42, 0.04);
   position: relative;
   z-index: 6;
 }
@@ -3322,5 +3323,173 @@ h3 {
   }
   .hero-feature-tags {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================================
+   OFFICIAL BUSINESS LOGO & SERVICE HERO STYLING (Plus Jakarta Sans)
+   ========================================================================== */
+
+.hero-brand-badge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  flex-wrap: wrap;
+}
+
+.hero-brand-logo-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.hero-main-logo {
+  height: 44px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.06));
+}
+
+.hero-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid #bfdbfe;
+}
+
+.hero-service-title {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.1rem, 3.8vw, 3rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.hero-service-lead {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.05rem;
+  color: #475569;
+  font-weight: 450;
+  line-height: 1.68;
+  margin-bottom: 24px;
+  max-width: 620px;
+}
+
+.hero-service-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.h-service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px 16px;
+  transition: all 0.25s ease;
+}
+
+.h-service-item:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08);
+}
+
+.h-service-item.h-service-highlight {
+  background: #fffdf5;
+  border-color: #fde68a;
+}
+
+.h-service-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.h-service-icon.gold {
+  background: #fef3c7;
+}
+
+.h-service-icon.blue {
+  background: #e0f2fe;
+}
+
+.h-service-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.h-service-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.h-service-text h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 750;
+  color: #0f172a;
+  margin: 0;
+}
+
+.h-service-badge {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.h-service-text p {
+  font-size: 12.5px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.h-service-text p b {
+  color: #1e293b;
+}
+
+@media (max-width: 768px) {
+  .hero-copy {
+    padding: 26px 20px;
+  }
+  .hero-brand-badge-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
