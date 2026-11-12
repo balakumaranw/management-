@@ -20,6 +20,7 @@ function init() {
   try { initHeroVideo(); } catch(e) { console.warn(e); }
   try { initLiveTicker(); } catch(e) { console.warn(e); }
   try { initHeroInteractions(); } catch(e) { console.warn(e); }
+  try { initHeroCardsTilt(); } catch(e) { console.warn(e); }
 }
 
 function initAssetVerification() {
@@ -610,6 +611,51 @@ function initHeroInteractions() {
 
       viewTelemetry.style.display = 'none';
       viewBotSim.style.display = 'block';
+
+      // Elegant staggered message reveal animation for BG Bot simulation
+      const bubbles = viewBotSim.querySelectorAll('.sim-bubble');
+      bubbles.forEach((b, idx) => {
+        b.style.opacity = '0';
+        b.style.transform = 'translateY(12px)';
+        b.style.transition = 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+        setTimeout(() => {
+          b.style.opacity = '1';
+          b.style.transform = 'translateY(0)';
+        }, idx * 220);
+      });
     });
   }
+}
+
+/* ==========================================================================
+   12. HERO CARDS INTERACTIVE 3D PERSPECTIVE TILT
+   ========================================================================== */
+
+function initHeroCardsTilt() {
+  if (window.innerWidth < 1024 || ('ontouchstart' in window)) return;
+  const cards = document.querySelectorAll('.hero-copy, .dashboard-card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const xPercent = (x / rect.width - 0.5) * 2;
+      const yPercent = (y / rect.height - 0.5) * 2;
+      
+      const rotX = -yPercent * 4;
+      const rotY = xPercent * 4;
+      
+      card.style.transform = 'perspective(1200px) rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg) translateY(-2px)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+    });
+    
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'none';
+    });
+  });
 }
