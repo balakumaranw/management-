@@ -96,13 +96,28 @@
     <section class="hero-section-outer" id="home">
       <!-- High-Resolution Architectural Video Ambient Layer -->
       <div class="hero-video-backdrop" aria-hidden="true">
-        <video id="heroBgVideo" class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="assets/hero-city-poster.jpg">
-          <source src="assets/hero-city.webm" type="video/webm">
+        <video id="heroBgVideo" class="hero-bg-video" autoplay muted loop playsinline preload="auto">
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-daytime-city-traffic-aerial-view-56-large.mp4" type="video/mp4">
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-spinning-around-the-earth-29351-large.mp4" type="video/mp4">
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-a-futuristic-circuit-board-42956-large.mp4" type="video/mp4">
           <source src="assets/hero-luxury.webm" type="video/webm">
           <source src="https://upload.wikimedia.org/wikipedia/commons/d/d5/City_skyline_%28time_lapse%29.webm" type="video/webm">
-          <source src="https://upload.wikimedia.org/wikipedia/commons/6/64/Timelapse_of_high-rise_buildings_in_Tokyo.webm" type="video/webm">
         </video>
         <div class="hero-video-overlay"></div>
+      </div>
+
+      <!-- Video Control HUD Pill -->
+      <div class="hero-video-controller-wrap">
+        <div class="hero-video-pill">
+          <span class="video-live-dot"></span>
+          <span class="video-label">4K CINEMATIC REEL &bull; <b id="activeReelName">Metropolis &amp; Skyscraper Aerial</b></span>
+          <button type="button" class="video-ctrl-btn" id="switchReelBtn" title="Switch architectural camera view">
+            <span>🔁 Switch Reel</span>
+          </button>
+          <button type="button" class="video-ctrl-btn" id="playPauseVideoBtn" title="Play or Pause background video">
+            <span id="playPauseText">⏸ Pause</span>
+          </button>
+        </div>
       </div>
 
       <!-- Video Control HUD Pill -->

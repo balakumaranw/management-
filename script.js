@@ -534,14 +534,24 @@ function initHeroInteractions() {
 
   const reels = [
     {
-      name: 'San Francisco Skyline',
-      local: 'assets/hero-city.webm',
-      cdn: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/City_skyline_%28time_lapse%29.webm'
+      name: 'Metropolis & Skyscraper Aerial',
+      src: 'https://assets.mixkit.co/videos/preview/mixkit-daytime-city-traffic-aerial-view-56-large.mp4',
+      type: 'video/mp4'
+    },
+    {
+      name: 'Global Enterprise Orbit',
+      src: 'https://assets.mixkit.co/videos/preview/mixkit-spinning-around-the-earth-29351-large.mp4',
+      type: 'video/mp4'
+    },
+    {
+      name: 'Autonomous Circuit Engine',
+      src: 'https://assets.mixkit.co/videos/preview/mixkit-animation-of-a-futuristic-circuit-board-42956-large.mp4',
+      type: 'video/mp4'
     },
     {
       name: 'Tokyo High-Rise Tower',
-      local: 'assets/hero-luxury.webm',
-      cdn: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Timelapse_of_high-rise_buildings_in_Tokyo.webm'
+      src: 'assets/hero-luxury.webm',
+      type: 'video/webm'
     }
   ];
 
@@ -553,14 +563,13 @@ function initHeroInteractions() {
       const target = reels[currentReelIdx];
       if (activeReelName) activeReelName.textContent = target.name;
       
-      vid.style.opacity = '0.3';
+      vid.style.opacity = '0.35';
       setTimeout(() => {
-        // Change source
-        vid.innerHTML = '<source src="' + target.local + '" type="video/webm"><source src="' + target.cdn + '" type="video/webm">';
+        vid.innerHTML = '<source src="' + target.src + '" type="' + target.type + '">';
         vid.load();
         vid.play().catch(() => {});
         vid.style.opacity = '1';
-      }, 300);
+      }, 250);
     });
   }
 
