@@ -426,12 +426,12 @@ h3 {
 
 
 /* ==========================================================================
-   REALISTIC LUXURY VIDEO HERO BACKDROP
+   REALISTIC LUXURY VIDEO HERO BACKDROP — 100% CRYSTAL CLEAR
    ========================================================================== */
 .hero-section-outer {
   position: relative;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: #0b1329;
   border-bottom: 1px solid var(--line);
   min-height: calc(100vh - 72px);
   display: flex;
@@ -448,6 +448,7 @@ h3 {
   overflow: hidden;
 }
 
+/* 100% crystal-clear, razor-sharp Full-HD video */
 .hero-bg-video {
   position: absolute;
   top: 50%;
@@ -458,29 +459,26 @@ h3 {
   height: auto;
   transform: translate(-50%, -50%);
   object-fit: cover;
-  opacity: 0.78;
-  filter: contrast(1.14) brightness(1.02) saturate(1.25);
-  transition: opacity 0.8s ease;
+  opacity: 1 !important;
+  filter: contrast(1.05) brightness(1.02);
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: opacity 0.4s ease;
 }
 
+/* Gentle bottom blend only so video stays 100% clear & sharp across the view */
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 25% 45%, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.65) 45%, rgba(255, 255, 255, 0.25) 85%, rgba(255, 255, 255, 0.5) 100%);
+  /* Crystal-clear video: 100% transparent across the main view, zero milky haze or tint */
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 75%, rgba(255, 255, 255, 0.45) 88%, #ffffff 100%);
+  pointer-events: none;
 }
 
-.hero-video-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.1) 35%, rgba(255, 255, 255, 0.4) 70%, #ffffff 100%);
-}
-
+.hero-video-gradient,
 .hero-video-grid-pattern {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: 0.7;
+  display: none !important;
 }
 
 .hero {
@@ -492,6 +490,30 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 56px;
+}
+
+/* Luxury Frosted Glass Card for Hero Copy — ensures text is 100% readable while video is 100% clear */
+.hero-copy {
+  flex: 1.1;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 42px 38px;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.18), 0 8px 16px -4px rgba(15, 23, 42, 0.08);
+}
+
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 24px 56px -12px rgba(15, 23, 42, 0.2), 0 8px 16px -4px rgba(15, 23, 42, 0.08);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* HERO SECTION */
@@ -588,16 +610,6 @@ h3 {
 .hero-visual {
   flex: 0.95;
   position: relative;
-}
-
-.dashboard-card {
-  background: #ffffff;
-  border: 1px solid var(--panel-border);
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .dash-top {
@@ -2642,4 +2654,65 @@ h3 {
   .whp-tooltip {
     display: none;
   }
+}
+
+/* Live Client Activity Feed in Hero Dashboard */
+.live-client-ticker {
+  margin-top: 14px;
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.ticker-item {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #1e293b;
+  width: 100%;
+  animation: fadeInTicker 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.ticker-item.active {
+  display: flex;
+}
+
+@keyframes fadeInTicker {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ticker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ticker-dot.green {
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.ticker-dot.blue {
+  background: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.ticker-client {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.ticker-action {
+  color: #475569;
+  font-weight: 500;
 }
