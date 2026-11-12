@@ -21,6 +21,7 @@ function init() {
   try { initLiveTicker(); } catch(e) { console.warn(e); }
   try { initHeroInteractions(); } catch(e) { console.warn(e); }
   try { initHeroCardsTilt(); } catch(e) { console.warn(e); }
+  try { initRealisticAmbientWave(); } catch(e) { console.warn(e); }
 }
 
 function initAssetVerification() {
@@ -658,4 +659,118 @@ function initHeroCardsTilt() {
       card.style.transition = 'none';
     });
   });
+}
+
+
+/* ==========================================================================
+   13. REALISTIC AMBIENT FLUID WAVE CANVAS (Pure White Theme)
+   ========================================================================== */
+
+function initRealisticAmbientWave() {
+  const canvas = document.getElementById('ambientMeshCanvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let time = 0;
+  let mouse = { x: 0.5, y: 0.5, targetX: 0.5, targetY: 0.5 };
+  let animId;
+
+  function resize() {
+    const parent = canvas.parentElement;
+    if (!parent) return;
+    const rect = parent.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    if (width === 0 || height === 0) return;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  window.addEventListener('mousemove', e => {
+    mouse.targetX = e.clientX / window.innerWidth;
+    mouse.targetY = e.clientY / window.innerHeight;
+  }, { passive: true });
+
+  window.addEventListener('touchmove', e => {
+    if (e.touches && e.touches.length > 0) {
+      mouse.targetX = e.touches[0].clientX / window.innerWidth;
+      mouse.targetY = e.touches[0].clientY / window.innerHeight;
+    }
+  }, { passive: true });
+
+  function drawWave(baseY, amp, freq, speed, color1, color2) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(0, height);
+    ctx.lineTo(0, baseY);
+
+    const steps = 16;
+    const stepSize = width / steps;
+
+    for (let i = 0; i <= steps; i++) {
+      const x = i * stepSize;
+      const angle = (x * freq) + (time * speed) + (mouse.x * 2);
+      const angle2 = (x * freq * 1.5) - (time * speed * 0.7) + (mouse.y * 1.5);
+      const y = baseY + Math.sin(angle) * amp + Math.cos(angle2) * (amp * 0.45);
+      ctx.lineTo(x, y);
+    }
+
+    ctx.lineTo(width, height);
+    ctx.closePath();
+
+    const grad = ctx.createLinearGradient(0, baseY - amp, width, height);
+    grad.addColorStop(0, color1);
+    grad.addColorStop(1, color2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function loop() {
+    time += 0.014;
+    mouse.x += (mouse.targetX - mouse.x) * 0.04;
+    mouse.y += (mouse.targetY - mouse.y) * 0.04;
+
+    ctx.clearRect(0, 0, width, height);
+
+    // Layer 1: Subtle Sky Sapphire Light Wave
+    drawWave(
+      height * 0.55,
+      height * 0.11,
+      0.0022,
+      1.1,
+      'rgba(37, 99, 235, 0.06)',
+      'rgba(37, 99, 235, 0.01)'
+    );
+
+    // Layer 2: Soft Champagne Gold Ambient Sheen
+    drawWave(
+      height * 0.65,
+      height * 0.13,
+      0.0018,
+      0.85,
+      'rgba(217, 119, 6, 0.045)',
+      'rgba(245, 158, 11, 0.01)'
+    );
+
+    // Layer 3: Caustic Pearl White Ambient Refraction
+    drawWave(
+      height * 0.75,
+      height * 0.15,
+      0.0014,
+      0.6,
+      'rgba(255, 255, 255, 0.22)',
+      'rgba(255, 255, 255, 0.65)'
+    );
+
+    animId = requestAnimationFrame(loop);
+  }
+
+  loop();
 }

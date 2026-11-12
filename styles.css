@@ -431,7 +431,7 @@ h3 {
 .hero-section-outer {
   position: relative;
   overflow: hidden;
-  background-color: #0b1329;
+  background-color: #ffffff;
   border-bottom: 1px solid var(--line);
   min-height: calc(100vh - 72px);
   display: flex;
@@ -471,8 +471,8 @@ h3 {
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  /* Crystal-clear video: 100% transparent across the main view, zero milky haze or tint */
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 75%, rgba(255, 255, 255, 0.45) 88%, #ffffff 100%);
+  /* Soft white daylight integration — makes modern architecture video harmonize with white theme */
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.75) 80%, #ffffff 100%);
   pointer-events: none;
 }
 
@@ -492,16 +492,15 @@ h3 {
   gap: 56px;
 }
 
-/* Luxury Executive Service Card for Hero */
+/* Poster-Free Clean Hero Presentation — Pure Breathable Typography */
 .hero-copy {
   flex: 1.15;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  border-radius: 26px;
-  padding: 36px 34px;
-  box-shadow: 0 24px 64px -12px rgba(15, 23, 42, 0.16), 0 4px 16px rgba(15, 23, 42, 0.04);
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
   position: relative;
   z-index: 6;
 }
@@ -3749,4 +3748,358 @@ h3 {
   .pipeline-connector {
     display: none;
   }
+}
+
+
+/* ==========================================================================
+   STREAMLINED HERO SERVICE CHIPS & REALISTIC AMBIENT WAVE CANVAS
+   ========================================================================== */
+
+/* Realistic Ambient Canvas — layered over video with fluid light reflections */
+.hero-ambient-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.82;
+}
+
+/* Streamlined Service Chips in Hero Copy */
+.hero-service-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.h-chip-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 14px;
+  padding: 11px 16px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.h-chip-item:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08);
+}
+
+.h-chip-item.h-chip-highlight {
+  background: #fffdf5;
+  border-color: #fde68a;
+}
+
+.h-chip-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.h-chip-icon.gold {
+  background: #fef3c7;
+}
+
+.h-chip-icon.blue {
+  background: #e0f2fe;
+}
+
+.h-chip-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.h-chip-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.h-chip-text strong {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 750;
+  color: #0f172a;
+}
+
+.h-chip-badge {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.h-chip-text small {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.h-chip-text small b {
+  color: #1e293b;
+}
+
+/* ==========================================================================
+   MOBILE VIEW HERO OVERHAUL — 100% CLEAN, BREATHABLE, ZERO CLUTTER
+   ========================================================================== */
+@media (max-width: 991px) {
+  .hero-section-outer {
+    min-height: auto;
+    padding-top: 12px;
+    padding-bottom: 48px;
+  }
+
+  .hero.section-wrap {
+    padding-inline: 16px;
+    gap: 24px;
+    padding-block: 20px 20px;
+  }
+
+  .hero-video-controller-wrap {
+    display: none !important;
+  }
+
+  .hero-floating-chip {
+    display: none !important;
+  }
+
+  .hero-copy {
+    padding: 24px 18px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.12) !important;
+    width: 100% !important;
+  }
+
+  .hero-brand-badge-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+  }
+
+  .hero-main-logo {
+    height: 36px;
+    max-width: 170px;
+  }
+
+  .hero-verified-badge {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .hero-service-title {
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 14px;
+    text-align: left;
+  }
+
+  .hero-service-lead {
+    font-size: 0.94rem !important;
+    line-height: 1.58 !important;
+    margin-bottom: 20px !important;
+    text-align: left;
+  }
+
+  .hero-service-chips {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .h-chip-item {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .h-chip-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+
+  .h-chip-text strong {
+    font-size: 12.5px;
+  }
+
+  .h-chip-text small {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 14px;
+  }
+
+  .hero-proof-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+
+  .proof-divider {
+    display: none;
+  }
+
+  /* Right column dashboard card on mobile */
+  .hero-visual {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .dashboard-card {
+    padding: 20px 16px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.1) !important;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .metric {
+    padding: 12px 10px !important;
+  }
+
+  .metric strong {
+    font-size: 1.25rem !important;
+  }
+
+  .chart-panel {
+    padding: 12px 10px !important;
+  }
+}
+
+
+/* ==========================================================================
+   STREAMLINED SERVICE PILLS (POSTER-FREE)
+   ========================================================================== */
+.hero-service-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.hero-pill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 12px;
+  padding: 10px 14px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.hero-pill-item:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px -4px rgba(15, 23, 42, 0.08);
+}
+
+.hero-pill-item.hp-highlight {
+  background: rgba(255, 253, 245, 0.95);
+  border-color: #fde68a;
+}
+
+.hp-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.hp-icon.gold {
+  background: #fef3c7;
+}
+
+.hp-icon.blue {
+  background: #e0f2fe;
+}
+
+.hp-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hp-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hp-text strong {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 750;
+  color: #0f172a;
+}
+
+.hp-badge {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.hp-text small {
+  font-size: 11.5px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.hp-text small b {
+  color: #1e293b;
 }

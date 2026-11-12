@@ -94,37 +94,24 @@
   <main>
     <!-- HERO SECTION WITH REALISTIC LUXURY VIDEO BACKDROP -->
     <section class="hero-section-outer" id="home">
-      <!-- High-Resolution Architectural Video Ambient Layer -->
+      <!-- High-Resolution Architectural Video & Realistic Ambient Wave Layer -->
       <div class="hero-video-backdrop" aria-hidden="true">
         <video id="heroBgVideo" class="hero-bg-video" autoplay muted loop playsinline preload="auto">
           <source src="https://assets.mixkit.co/videos/preview/mixkit-daytime-city-traffic-aerial-view-56-large.mp4" type="video/mp4">
           <source src="https://assets.mixkit.co/videos/preview/mixkit-spinning-around-the-earth-29351-large.mp4" type="video/mp4">
           <source src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-a-futuristic-circuit-board-42956-large.mp4" type="video/mp4">
-          <source src="assets/hero-luxury.webm" type="video/webm">
           <source src="https://upload.wikimedia.org/wikipedia/commons/d/d5/City_skyline_%28time_lapse%29.webm" type="video/webm">
         </video>
+        <!-- Realistic Interactive Ambient Fluid Mesh (100% White-Theme Pure) -->
+        <canvas id="ambientMeshCanvas" class="hero-ambient-canvas"></canvas>
         <div class="hero-video-overlay"></div>
       </div>
 
-      <!-- Video Control HUD Pill -->
+      <!-- Single Elegant Video Control Pill -->
       <div class="hero-video-controller-wrap">
         <div class="hero-video-pill">
           <span class="video-live-dot"></span>
-          <span class="video-label">4K CINEMATIC REEL &bull; <b id="activeReelName">Metropolis &amp; Skyscraper Aerial</b></span>
-          <button type="button" class="video-ctrl-btn" id="switchReelBtn" title="Switch architectural camera view">
-            <span>🔁 Switch Reel</span>
-          </button>
-          <button type="button" class="video-ctrl-btn" id="playPauseVideoBtn" title="Play or Pause background video">
-            <span id="playPauseText">⏸ Pause</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Video Control HUD Pill -->
-      <div class="hero-video-controller-wrap">
-        <div class="hero-video-pill">
-          <span class="video-live-dot"></span>
-          <span class="video-label">4K CINEMATIC REEL &bull; <b id="activeReelName">San Francisco Skyline</b></span>
+          <span class="video-label">4K REEL: <b id="activeReelName">Metropolis &amp; Skyscraper Aerial</b></span>
           <button type="button" class="video-ctrl-btn" id="switchReelBtn" title="Switch architectural camera view">
             <span>🔁 Switch Reel</span>
           </button>
@@ -136,113 +123,74 @@
 
       <div class="hero section-wrap">
         <div class="hero-copy reveal">
-          <div class="luxury-border-beam" aria-hidden="true"></div>
           
-          <!-- Official Business Graph Logo Header -->
+          <!-- Official Business Graph Logo & Status Tag -->
           <div class="hero-brand-badge-header">
             <div class="hero-brand-logo-wrap">
               <img src="assets/logo.png" alt="Business Graph Logo" class="hero-main-logo" />
             </div>
             <div class="hero-verified-badge">
               <span class="live-dot"></span>
-              <span>DIGITAL ECOSYSTEMS &bull; AI AGENTS &bull; PAID GROWTH</span>
+              <span>VERIFIED DIGITAL AGENCY &bull; 2026</span>
             </div>
           </div>
           
-          <!-- Service-Related Headline in Luxury Typography -->
+          <!-- Punchy Luxury Service Headline -->
           <h1 class="hero-service-title">
             Enterprise Web Architecture &amp;<br>
             <span class="gradient-text">Autonomous AI Sales Bots.</span>
           </h1>
           
           <p class="hero-service-lead">
-            We engineer connected digital engines for modern businesses &mdash; uniting high-speed web platforms, 24/7 intelligent WhatsApp bots that answer clients &amp; collect instant UPI payments, and high-ROI Meta ad growth.
+            We engineer connected digital engines for modern businesses &mdash; uniting sub-second web platforms, 24/7 intelligent WhatsApp bots that answer clients &amp; collect instant UPI payments, and high-ROI Meta ad growth.
           </p>
 
-          <!-- Futuristic Live Automation Pipeline Stream -->
-          <div class="business-pipeline-flow" aria-label="Autonomous 4-step business scaling engine">
-            <div class="pipeline-header">
-              <span class="pipeline-pulse-dot"></span>
-              <span class="pipeline-title">AUTONOMOUS PIPELINE FLOW</span>
-              <span class="pipeline-speed">&lt; 0.2s Sub-Second Sync</span>
-            </div>
-            <div class="pipeline-track">
-              <div class="pipeline-step">
-                <span class="p-step-dot blue"></span>
-                <span class="p-step-text">1. Web Visitor</span>
-              </div>
-              <div class="pipeline-connector">
-                <span class="p-pulse-packet"></span>
-              </div>
-              <div class="pipeline-step active-step">
-                <span class="p-step-dot cyan"></span>
-                <span class="p-step-text">2. BG Bot AI</span>
-              </div>
-              <div class="pipeline-connector">
-                <span class="p-pulse-packet packet-2"></span>
-              </div>
-              <div class="pipeline-step gold-step">
-                <span class="p-step-dot gold"></span>
-                <span class="p-step-text">3. Instant UPI</span>
-              </div>
-              <div class="pipeline-connector">
-                <span class="p-pulse-packet packet-3"></span>
-              </div>
-              <div class="pipeline-step green-step">
-                <span class="p-step-dot green"></span>
-                <span class="p-step-text">4. Lead Closed</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Core Service Offerings Grid -->
-          <div class="hero-service-cards">
-            
-            <div class="h-service-item">
-              <div class="h-service-icon">🌐</div>
-              <div class="h-service-text">
-                <h4>High-Speed Web Architecture</h4>
-                <p>Lightning-fast custom business websites &amp; client portals (e.g. <b>kandarealestate.in</b> &amp; <b>Aqua Guide</b>) built for maximum conversions.</p>
+          <!-- Streamlined 3 Service Highlight Pills (Lightweight & Poster-Free) -->
+          <div class="hero-service-pills">
+            <div class="hero-pill-item">
+              <span class="hp-icon">🌐</span>
+              <div class="hp-text">
+                <strong>High-Speed Web Platforms</strong>
+                <small>Built for kandarealestate.in &amp; Aqua Guide</small>
               </div>
             </div>
 
-            <div class="h-service-item h-service-highlight">
-              <div class="h-service-icon gold">🤖</div>
-              <div class="h-service-text">
-                <div class="h-service-title-row">
-                  <h4>Flagship BG Bot Intelligence</h4>
-                  <span class="h-service-badge">24/7 INSTANT</span>
+            <div class="hero-pill-item hp-highlight">
+              <span class="hp-icon gold">🤖</span>
+              <div class="hp-text">
+                <div class="hp-title-row">
+                  <strong>24/7 BG Bot WhatsApp AI</strong>
+                  <span class="hp-badge">INSTANT</span>
                 </div>
-                <p>Proprietary WhatsApp AI bot: instant &lt;0.2s client replies, automated UPI payment collection, and direct CRM lead routing to your team.</p>
+                <small>&lt;0.2s replies &middot; Instant UPI payment collection</small>
               </div>
             </div>
 
-            <div class="h-service-item">
-              <div class="h-service-icon blue">📈</div>
-              <div class="h-service-text">
-                <h4>Performance Meta Advertising</h4>
-                <p>Hyper-targeted Facebook &amp; Instagram campaigns engineered for compound business scaling with 4.8x average verified ROAS.</p>
+            <div class="hero-pill-item">
+              <span class="hp-icon blue">📈</span>
+              <div class="hp-text">
+                <strong>Meta Ads Performance</strong>
+                <small>4.8x verified average ROAS scaling</small>
               </div>
             </div>
-
           </div>
 
           <!-- Hero Action CTAs -->
           <div class="hero-actions">
             <a class="button button-primary" href="#contact">
-              <span>Transform Your Business</span>
+              <span>Scale Your Business</span>
               <span class="btn-arrow">&nearr;</span>
             </a>
             <a class="button button-whatsapp" href="https://wa.me/919489368104?text=Hello%20Business%20Graph%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener">
-              <span>💬 WhatsApp Enquiry</span>
+              <span>💬 WhatsApp: +91 9489368104</span>
               <span class="btn-arrow">&nearr;</span>
             </a>
             <a class="text-link" href="#our-work">
-              <span>View Client Work &darr;</span>
+              <span>View Case Studies &darr;</span>
             </a>
           </div>
 
-          <!-- Social Proof & Client Verification Bar -->
+          <!-- Social Proof & Verification Bar -->
           <div class="hero-proof-bar">
             <div class="proof-stars">
               <span class="stars-gold">★★★★★</span>
