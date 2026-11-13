@@ -4103,3 +4103,366 @@ h3 {
 .hp-text small b {
   color: #1e293b;
 }
+
+
+/* ==========================================================================
+   3D MILKY WAY GALAXY MOTION GRAPHICS & SCROLL-DRIVEN CELESTIAL STYLING
+   ========================================================================== */
+
+/* Full-Screen Fixed 3D Canvas Background */
+.milkyway-galaxy-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none !important;
+  background: radial-gradient(circle at 50% 50%, #060e24 0%, #030714 55%, #010207 100%);
+  display: block;
+}
+
+/* Ensure Page Structure Layers Over the 3D Galaxy */
+body {
+  position: relative;
+  background: transparent !important;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Section Transparency to Reveal 3D Galaxy Motion */
+.hero-section-outer {
+  background-color: transparent !important;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-video-backdrop {
+  opacity: 0.25 !important;
+}
+
+.hero-video-overlay {
+  background: linear-gradient(180deg, rgba(3, 7, 20, 0.2) 0%, rgba(3, 7, 20, 0.05) 50%, rgba(255, 255, 255, 0.3) 85%, transparent 100%) !important;
+}
+
+/* Floating 3D Galaxy Customizer HUD Bar */
+.galaxy-customizer-hud {
+  position: sticky;
+  top: 68px;
+  z-index: 95;
+  background: rgba(11, 19, 43, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 8px 24px;
+  box-shadow: 0 8px 24px -4px rgba(3, 7, 20, 0.4);
+}
+
+.galaxy-hud-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.galaxy-status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.galaxy-pulse-core {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3), 0 0 12px #f59e0b;
+  animation: corePulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes corePulseGlow {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3), 0 0 12px #f59e0b; }
+  50% { transform: scale(1.3); box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.4), 0 0 20px #38bdf8; }
+}
+
+.galaxy-hud-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #f8fafc;
+}
+
+.galaxy-scroll-tag {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.galaxy-hud-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.gh-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: #e2e8f0;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gh-btn:hover {
+  background: rgba(56, 189, 248, 0.22);
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+}
+
+.gh-btn b {
+  color: #38bdf8;
+}
+
+.gh-meteor-btn {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(217, 119, 6, 0.35));
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+.gh-meteor-btn:hover {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  border-color: #f59e0b;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+}
+
+/* Sections on Galactic Background */
+.section-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.ourwork-section, .services-section, .bgbot-section, .team-section, .pricing-section, .contact-section {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .galaxy-customizer-hud {
+    top: 56px;
+    padding: 6px 14px;
+  }
+  .galaxy-scroll-tag {
+    display: none;
+  }
+  .galaxy-hud-controls {
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+  .galaxy-hud-controls::-webkit-scrollbar {
+    display: none;
+  }
+  .gh-btn {
+    padding: 4px 9px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+}
+
+
+/* Celestial Section Headings over 3D Milky Way */
+.section-heading h2 {
+  color: #f8fafc;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
+}
+
+.section-heading p {
+  color: #cbd5e1 !important;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.9);
+}
+
+.eyebrow {
+  color: #93c5fd;
+}
+
+/* Celestial Hero Typography & Seamless Floating Elements over 3D Milky Way */
+.hero-copy {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.hero-service-title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.95), 0 0 45px rgba(56, 189, 248, 0.4) !important;
+}
+
+.hero-service-title .gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 45%, #fbbf24 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 16px rgba(56, 189, 248, 0.45));
+}
+
+.hero-service-lead {
+  color: #f1f5f9 !important;
+  font-weight: 480 !important;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.95), 0 0 32px rgba(2, 6, 23, 0.95) !important;
+}
+
+/* Translucent Cosmic Glass Service Pills — Poster-Free & Lightweight */
+.hero-service-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.hero-pill-item {
+  background: rgba(11, 19, 43, 0.72) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.28) !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6) !important;
+  border-radius: 14px !important;
+  padding: 12px 18px !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hero-pill-item:hover {
+  background: rgba(15, 23, 42, 0.88) !important;
+  border-color: #38bdf8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px -4px rgba(56, 189, 248, 0.3) !important;
+}
+
+.hero-pill-item.hp-highlight {
+  background: rgba(20, 24, 48, 0.82) !important;
+  border-color: rgba(245, 158, 11, 0.45) !important;
+  box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.25) !important;
+}
+
+.hero-pill-item .hp-icon {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+}
+
+.hero-pill-item .hp-icon.gold {
+  background: rgba(245, 158, 11, 0.2) !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+}
+
+.hero-pill-item .hp-icon.blue {
+  background: rgba(37, 99, 235, 0.2) !important;
+  border: 1px solid rgba(37, 99, 235, 0.4) !important;
+}
+
+.hero-pill-item .hp-text strong {
+  color: #f8fafc !important;
+  font-size: 13.5px !important;
+}
+
+.hero-pill-item .hp-text small {
+  color: #94a3b8 !important;
+  font-size: 12px !important;
+}
+
+.hero-verified-badge {
+  background: rgba(56, 189, 248, 0.15) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4) !important;
+}
+
+.hero-proof-bar .proof-stars {
+  color: #f8fafc !important;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.9) !important;
+}
+
+.hero-proof-bar .proof-clients {
+  color: #cbd5e1 !important;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.9) !important;
+}
+
+.hero-proof-bar .proof-clients b {
+  color: #ffffff !important;
+}
+
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+.service-card, .work-card, .team-card-3d, .pricing-card {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.45) !important;
+}
+
+.bgbot-inner {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.6);
+}
+
+.bgbot-title {
+  color: #f8fafc;
+}
+
+.bgbot-subtitle {
+  color: #cbd5e1;
+}
+
+.bgbot-feature-card {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+}
+
+.bgbot-feature-card h3 {
+  color: #ffffff;
+}
+
+.bgbot-feature-card p {
+  color: #94a3b8;
+}
+
+.strip-label span {
+  color: #cbd5e1;
+}
+
+.marquee-content span {
+  color: #f8fafc;
+}

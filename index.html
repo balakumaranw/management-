@@ -27,6 +27,8 @@
   <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- 3D Interactive Milky Way Galaxy Motion Graphics (Moves on Scroll & Mouse) -->
+  <canvas id="galaxyCanvas" class="milkyway-galaxy-canvas" aria-hidden="true"></canvas>
   <!-- Interactive Futuristic Neural Graph Canvas Background -->
   <!-- Ambient Interactive Mouse Spotlight -->
   <!-- Ambient Light Fields -->
@@ -90,6 +92,31 @@
       </a>
     </div>
   </header>
+  <!-- Interactive 3D Milky Way Galaxy Customizer Bar -->
+  <div class="galaxy-customizer-hud" role="region" aria-label="3D Galaxy Motion Graphics Controls">
+    <div class="galaxy-hud-inner">
+      <div class="galaxy-status-indicator">
+        <span class="galaxy-pulse-core"></span>
+        <span class="galaxy-hud-title">3D MILKY WAY GALAXY</span>
+        <span class="galaxy-scroll-tag">📜 SCROLL DRIVEN</span>
+      </div>
+      <div class="galaxy-hud-controls">
+        <button type="button" class="gh-btn" id="ghAngleBtn" title="Switch 3D Galaxy Camera Perspective">
+          <span>🔁 Perspective: <b id="ghAngleName">Oblique 3D</b></span>
+        </button>
+        <button type="button" class="gh-btn" id="ghSpeedBtn" title="Toggle Cosmic Drift / Warp Speed">
+          <span>⚡ Warp: <b id="ghSpeedName">Cosmic 1x</b></span>
+        </button>
+        <button type="button" class="gh-btn" id="ghColorBtn" title="Cycle Galaxy Stellar Palette">
+          <span>🎨 Colors: <b id="ghPaletteName">Solar Cyan</b></span>
+        </button>
+        <button type="button" class="gh-btn gh-meteor-btn" id="ghMeteorBtn" title="Launch a Shooting Star across the Galaxy">
+          <span>☄️ Launch Meteor</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
 
   <main>
     <!-- HERO SECTION WITH REALISTIC LUXURY VIDEO BACKDROP -->
