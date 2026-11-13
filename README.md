@@ -1,98 +1,58 @@
-# Business Graph — Website
+# Flowgrid Website
 
-A responsive, static agency website for **Business Graph**, built with HTML, CSS, and vanilla JavaScript. It is ready to upload to GitHub and deploy on Vercel.
+A responsive, premium black-and-white website for Flowgrid, built with React and Vite.
 
-## Included features
-
-- Futuristic dark theme with cyan and violet accents
-- Responsive navigation for desktop and mobile
-- Hero dashboard illustration
-- Services, workflow, team, pricing, AI demo, and contact sections
-- Scroll reveal animations and interactive demo chat
-- Contact form that prepares an email using the visitor's email app
-- No build step or framework dependencies
+## Included
+- Animated hero, orbit graphics, moving ticker, reveal-on-scroll sections and Flowgrid Bot visual
+- Services, process, team, FAQ and contact sections
+- WhatsApp contact button and email/phone links
+- Responsive mobile navigation
+- Custom Flowgrid SVG logo
 
 ## Run locally
 
-You can open `index.html` directly in a browser. For a local server, run:
+You need Node.js 18+ installed.
 
 ```bash
-python -m http.server 8000
+npm install
+npm run dev
 ```
 
-Then visit <http://localhost:8000>.
+Open the local URL printed by Vite.
 
-## Important: configure the contact form
+## Build for deployment
 
-Before publishing, open `script.js` and find:
-
-```js
-const recipient = 'hello@yourdomain.com';
+```bash
+npm run build
+npm run preview
 ```
 
-Replace it with the email address where you want to receive enquiries.
+The production website is generated in the `dist/` folder.
 
-**Note:** This is a static-site contact form. It opens the visitor's default email application; it does not store or send submissions to a database. For a form that submits directly on the website, connect a form service or add a backend/API endpoint.
+## Publish to GitHub
 
-## Deploy to GitHub and Vercel
-
-### 1. Create a GitHub repository
-
-1. Sign in to GitHub and create a new repository, for example `business-graph-website`.
-2. Upload the contents of this project folder to the repository root. Make sure `index.html`, `styles.css`, and `script.js` are at the top level.
-
-Or use Git:
+1. Create a new empty repository on GitHub named `flowgrid-website`.
+2. Extract this project ZIP.
+3. In a terminal opened inside the extracted folder, run:
 
 ```bash
 git init
 git add .
-git commit -m "Create Business Graph website"
+git commit -m "Create Flowgrid website"
 git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/business-graph-website.git
+git remote add origin https://github.com/YOUR-USERNAME/flowgrid-website.git
 git push -u origin main
 ```
 
 Replace `YOUR-USERNAME` with your GitHub username.
 
-### 2. Deploy on Vercel
+## Deploy with GitHub Pages / Vercel / Netlify
+Vercel and Netlify can deploy this Vite project directly. Set the build command to `npm run build` and output directory to `dist`.
 
-1. Sign in to [Vercel](https://vercel.com/).
-2. Choose **Add New → Project**.
-3. Import your GitHub repository.
-4. Vercel should detect a static site. If configuration is requested:
-   - Framework Preset: **Other**
-   - Build Command: leave empty
-   - Output Directory: `.`
-   - Install Command: leave empty
-5. Select **Deploy**.
+For GitHub Pages, configure the Vite `base` option to `'/flowgrid-website/'` in `vite.config.js` if deploying to a project page, then build and publish `dist`.
 
-Vercel will provide a public deployment URL. You can add a custom domain in the project's **Settings → Domains**.
-
-## Customize
-
-- Brand name and page content: `index.html`
-- Colors, layout, and responsive styles: `styles.css` (`:root` variables near the top)
-- Navigation, chat demo, and contact behavior: `script.js`
-
-## Before launch checklist
-
-- [ ] Replace the placeholder contact email in `script.js`
-- [ ] Confirm all team names and titles are correct
-- [ ] Add your official social media links and contact details
-- [ ] Replace placeholder initials with approved team photos if desired
-- [ ] Test the site on mobile and desktop
-- [ ] Test the contact form on a device with an email app configured
-
-## Project structure
-
-```text
-business-graph/
-├── index.html
-├── styles.css
-├── script.js
-└── README.md
-```
-
-## License
-
-Add a license file if you intend to publish this project for reuse. Otherwise, all rights are reserved by the project owner.
+## Before launch
+- Confirm that the phone number and email are correct.
+- Replace the initials-based team visuals with approved team portraits if you want real people shown.
+- The office/team photography uses remote Unsplash image URLs, so an internet connection is needed to load those photos.
+- Flowgrid Bot is presented as a product/service concept. Connect the actual telephony, AI and CRM systems before advertising live capabilities. Concurrent call capacity depends on infrastructure and provider limits.
