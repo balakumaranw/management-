@@ -4,39 +4,39 @@
    ========================================================================== */
 
 :root {
-  --bg: #ffffff;
-  --bg-surface: #f8fafc;
-  --bg-surface-elevated: #f1f5f9;
-  --panel: #ffffff;
-  --panel-border: #e2e8f0;
-  --panel-border-hover: #93c5fd;
+  --bg: #030712;
+  --bg-surface: rgba(15, 23, 42, 0.72);
+  --bg-surface-elevated: rgba(30, 41, 59, 0.85);
+  --panel: rgba(11, 19, 43, 0.75);
+  --panel-border: rgba(56, 189, 248, 0.22);
+  --panel-border-hover: rgba(56, 189, 248, 0.6);
 
-  --text: #0f172a;
-  --text-dim: #334155;
-  --muted: #64748b;
+  --text: #f8fafc;
+  --text-dim: #cbd5e1;
+  --muted: #94a3b8;
 
-  --cyan: #2563eb;
-  --cyan-bright: #3b82f6;
-  --cyan-deep: #1d4ed8;
-  --cyan-glow: rgba(37, 99, 235, 0.12);
+  --cyan: #38bdf8;
+  --cyan-bright: #67e8f9;
+  --cyan-deep: #0284c7;
+  --cyan-glow: rgba(56, 189, 248, 0.25);
 
-  --gold: #d97706;
-  --gold-bright: #f59e0b;
-  --gold-dark: #b45309;
-  --gold-glow: rgba(217, 119, 6, 0.12);
+  --gold: #f59e0b;
+  --gold-bright: #fbbf24;
+  --gold-dark: #d97706;
+  --gold-glow: rgba(245, 158, 11, 0.25);
 
-  --whatsapp: #25d366;
-  --whatsapp-glow: rgba(37, 211, 102, 0.25);
+  --whatsapp: #10b981;
+  --whatsapp-glow: rgba(16, 185, 129, 0.35);
 
-  --line: #e2e8f0;
-  --line-strong: #cbd5e1;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(56, 189, 248, 0.3);
 
-  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 12px 36px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
-  --shadow-3d: 0 24px 48px -12px rgba(37, 99, 235, 0.16), 0 12px 24px -6px rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.65), 0 0 16px rgba(56, 189, 248, 0.1);
+  --shadow-lg: 0 16px 48px -8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(56, 189, 248, 0.16);
+  --shadow-3d: 0 24px 64px -12px rgba(0, 0, 0, 0.88), 0 0 32px rgba(56, 189, 248, 0.22);
 
-  --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -251,10 +251,10 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(3, 7, 18, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
   padding: 14px 28px;
   display: flex;
   align-items: center;
@@ -386,9 +386,9 @@ h3 {
 }
 
 .button-secondary {
-  background: #ffffff;
-  color: var(--cyan);
-  border: 1.5px solid var(--line-strong);
+  background: rgba(15, 23, 42, 0.65);
+  color: #38bdf8;
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
   box-shadow: var(--shadow-sm);
 }
 
@@ -431,7 +431,7 @@ h3 {
 .hero-section-outer {
   position: relative;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: transparent;
   border-bottom: 1px solid var(--line);
   min-height: calc(100vh - 72px);
   display: flex;
@@ -855,9 +855,7 @@ h3 {
 }
 
 /* SERVICES SECTION */
-#services {
-  background: #ffffff;
-}
+#services { background: transparent; }
 
 .service-grid {
   display: grid;
@@ -866,190 +864,14 @@ h3 {
 }
 
 .service-card {
-  background: #ffffff;
-  border: 1px solid var(--panel-border);
-  border-radius: 18px;
+  background: rgba(11, 19, 43, 0.75) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  border-radius: 20px;
   padding: 32px 28px;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s var(--ease-out-expo);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.service-card:hover {
-  border-color: var(--panel-border-hover);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-5px);
-}
-
-.svc-animated-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.svc-animated-icon.gold {
-  background: #fef3c7;
-  border-color: #fde68a;
-}
-
-.svc-stat-badge {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--cyan);
-  background: #eff6ff;
-  padding: 3px 10px;
-  border-radius: 999px;
-  border: 1px solid #dbeafe;
-  margin-bottom: 12px;
-  letter-spacing: 0.5px;
-}
-
-.svc-stat-badge.gold-badge-svc {
-  color: var(--gold);
-  background: #fef3c7;
-  border-color: #fde68a;
-}
-
-.card-index {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.service-card h3 {
-  font-size: 1.35rem;
-  margin-bottom: 12px;
-  color: var(--text);
-}
-
-.service-card p {
-  color: var(--text-dim);
-  font-size: 0.94rem;
-  line-height: 1.65;
-  margin-bottom: 20px;
-  flex: 1;
-}
-
-.card-link {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--cyan);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap 0.2s ease;
-}
-
-.card-link:hover {
-  color: var(--cyan-deep);
-  gap: 9px;
-}
-
-/* FLAGSHIP BG BOT SECTION */
-.bgbot-section {
-  background: var(--bg-surface);
-  border-block: 1px solid var(--line);
-  padding: 96px 0;
-}
-
-.bgbot-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding-inline: 28px;
-}
-
-.bgbot-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--cyan);
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
-.bgbot-title {
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-
-.bgbot-subtitle {
-  font-size: 1.05rem;
-  color: var(--text-dim);
-  max-width: 600px;
-  line-height: 1.7;
-}
-
-.bgbot-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-block: 40px 48px;
-}
-
-.bgbot-stat {
-  background: #ffffff;
-  border: 1px solid var(--panel-border);
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-}
-
-.bgbot-stat-num {
-  font-family: var(--display);
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--cyan);
-  line-height: 1.1;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.bgbot-stat-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-.bgbot-features {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 56px;
-}
-
-.bgbot-feature-card {
-  background: #ffffff;
-  border: 1px solid var(--panel-border);
-  border-radius: 18px;
-  padding: 28px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.bgbot-feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--panel-border-hover);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.08) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bgbot-feature-icon {
@@ -1126,8 +948,8 @@ h3 {
 }
 
 .bgbot-chat-frame {
-  background: #ffffff;
-  border: 1px solid var(--panel-border);
+  background: rgba(11, 19, 43, 0.8) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -1196,9 +1018,9 @@ h3 {
 }
 
 .bgbot-bubble.bot-bubble {
-  background: #ffffff;
-  color: var(--text);
-  border: 1px solid var(--line);
+  background: rgba(15, 23, 42, 0.85) !important;
+  color: #f8fafc;
+  border: 1px solid rgba(56, 189, 248, 0.25);
   align-self: flex-start;
   border-bottom-left-radius: 4px;
   box-shadow: var(--shadow-sm);
@@ -1251,10 +1073,7 @@ h3 {
 }
 
 /* OUR WORK / PORTFOLIO SECTION */
-.ourwork-section {
-  background: #ffffff;
-  padding-block: 96px;
-}
+.ourwork-section { background: transparent; padding-block: 96px; }
 
 .work-grid {
   display: grid;
@@ -1263,14 +1082,14 @@ h3 {
 }
 
 .work-card {
-  background: #ffffff;
-  border: 1px solid var(--panel-border);
+  background: rgba(11, 19, 43, 0.75) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s var(--ease-out-expo);
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.08) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .work-card:hover {
@@ -1477,8 +1296,9 @@ h3 {
 }
 
 .testi-card {
-  background: #ffffff;
-  border: 1px solid var(--panel-border);
+  background: rgba(11, 19, 43, 0.78) !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  color: #f8fafc;
   border-radius: 20px;
   padding: 32px;
   box-shadow: var(--shadow-sm);
@@ -1569,9 +1389,7 @@ h3 {
 }
 
 /* SYSTEM PIPELINE SECTION */
-.system-section {
-  background: #ffffff;
-}
+.system-section { background: transparent; }
 
 .steps {
   display: grid;
@@ -1681,7 +1499,7 @@ h3 {
 
 .chat-window {
   flex: 0.9;
-  background: #ffffff;
+  background: rgba(11, 19, 43, 0.8) !important;
   border: 1px solid var(--panel-border);
   border-radius: 20px;
   overflow: hidden;
@@ -1740,9 +1558,9 @@ h3 {
 }
 
 .chat-message.bot .msg-content {
-  background: #ffffff;
-  border: 1px solid var(--line);
-  color: var(--text);
+  background: rgba(15, 23, 42, 0.85) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #f8fafc;
   padding: 12px 16px;
   border-radius: 14px;
   border-bottom-left-radius: 4px;
@@ -1815,10 +1633,7 @@ h3 {
 /* ==========================================================================
    LEADERSHIP & PARTNERS / 3D TEAM SECTION (100% CRYSTAL CLEAR + 3D)
    ========================================================================== */
-.team-section {
-  background: #ffffff;
-  padding-block: 96px;
-}
+.team-section { background: transparent; padding-block: 96px; }
 
 .team-tier-heading {
   display: flex;
@@ -1870,18 +1685,14 @@ h3 {
 
 /* 3D Team Card Architecture */
 .team-card-3d {
-  background: #ffffff;
-  border: 1px solid var(--panel-border);
+  background: rgba(11, 19, 43, 0.75) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
   border-radius: 22px;
   padding: 24px;
-  box-shadow: var(--shadow-md);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transform-style: preserve-3d;
-  transition: transform 0.45s var(--ease-out-expo), box-shadow 0.45s var(--ease-out-expo), border-color 0.3s ease;
-  will-change: transform;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.08) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .team-card-executive {
@@ -2098,8 +1909,9 @@ h3 {
 }
 
 .price-card {
-  background: #ffffff;
-  border: 1px solid var(--panel-border);
+  background: rgba(11, 19, 43, 0.78) !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  color: #f8fafc;
   border-radius: 20px;
   padding: 36px 30px;
   box-shadow: var(--shadow-sm);
@@ -2193,10 +2005,7 @@ h3 {
 }
 
 /* CORPORATE CONTACT SECTION */
-.contact-section {
-  background: #ffffff;
-  padding-block: 96px;
-}
+.contact-section { background: transparent; padding-block: 96px; }
 
 .contact-layout {
   display: grid;
@@ -2248,8 +2057,9 @@ h3 {
 }
 
 .contact-form-wrap {
-  background: #ffffff;
-  border: 1px solid var(--panel-border);
+  background: rgba(11, 19, 43, 0.8) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  color: #f8fafc;
   border-radius: 20px;
   padding: 36px 32px;
   box-shadow: var(--shadow-md);
@@ -2480,7 +2290,7 @@ h3 {
 .whp-tooltip {
   position: absolute;
   right: 74px;
-  background: #ffffff;
+  background: rgba(11, 19, 43, 0.95);
   color: var(--text);
   border: 1px solid var(--panel-border);
   box-shadow: var(--shadow-md);
@@ -3109,8 +2919,8 @@ h3 {
 }
 
 .dash-mode-tab.active {
-  background: #ffffff;
-  color: #0f172a;
+  background: rgba(56, 189, 248, 0.2) !important;
+  color: #f8fafc;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
 }
 
@@ -3126,7 +2936,7 @@ h3 {
 
 /* BG Bot Live Simulation Window in Hero Visual */
 .bot-sim-window {
-  background: #ffffff;
+  background: rgba(11, 19, 43, 0.8) !important;
   border-radius: 16px;
   border: 1px solid #e2e8f0;
   overflow: hidden;
@@ -3221,8 +3031,8 @@ h3 {
 
 .sim-bot {
   align-self: flex-start;
-  background: #ffffff;
-  color: #1e293b;
+  background: rgba(15, 23, 42, 0.85) !important;
+  color: #f8fafc;
   border: 1px solid #e2e8f0;
   border-bottom-left-radius: 2px;
   box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);
@@ -3285,7 +3095,7 @@ h3 {
 
 .sim-footer {
   padding: 12px 16px;
-  background: #ffffff;
+  background: rgba(15, 23, 42, 0.85) !important;
   border-top: 1px solid #e2e8f0;
 }
 
@@ -4414,20 +4224,46 @@ main {
   color: #ffffff !important;
 }
 
-.dashboard-card {
-  background: rgba(255, 255, 255, 0.94) !important;
+.dashboard-card,
+.service-card,
+.work-card,
+.team-card-3d,
+.pricing-card,
+.contact-card {
+  background: rgba(11, 19, 43, 0.78) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.75), 0 0 24px rgba(56, 189, 248, 0.1) !important;
+  color: #f8fafc !important;
 }
 
-.service-card, .work-card, .team-card-3d, .pricing-card {
-  background: rgba(255, 255, 255, 0.94) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.45) !important;
+.service-card h3,
+.work-card h3,
+.team-card-3d h3,
+.pricing-card h3,
+.dashboard-card h3 {
+  color: #ffffff !important;
+  font-family: var(--display) !important;
+}
+
+.service-card p,
+.work-card p,
+.team-card-3d p,
+.pricing-card p,
+.dashboard-card p {
+  color: #cbd5e1 !important;
+}
+
+.service-card:hover,
+.work-card:hover,
+.team-card-3d:hover,
+.pricing-card:hover {
+  background: rgba(15, 23, 42, 0.88) !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 20px 48px -10px rgba(56, 189, 248, 0.3), 0 0 32px rgba(56, 189, 248, 0.2) !important;
+  transform: translateY(-3px) !important;
 }
 
 .bgbot-inner {
@@ -4465,4 +4301,86 @@ main {
 
 .marquee-content span {
   color: #f8fafc;
+}
+
+
+/* ==========================================================================
+   GLOBAL CELESTIAL THEME HARMONIZATION FOR 3D MILKY WAY GALAXY
+   ========================================================================== */
+section, main, body {
+  background-color: transparent !important;
+}
+
+.section-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+/* Cosmic typography enhancement */
+h1, h2, h3, h4, .brand {
+  font-family: var(--display) !important;
+  color: #f8fafc !important;
+}
+
+p, span, li, a {
+  font-family: var(--font);
+}
+
+.text-muted, .muted, small {
+  color: #94a3b8 !important;
+}
+
+/* Glassmorphism on all major cards */
+.dashboard-card,
+.service-card,
+.work-card,
+.team-card-3d,
+.pricing-card,
+.contact-card,
+.testi-card,
+.price-card,
+.bgbot-chat-frame,
+.bot-sim-window {
+  background: rgba(11, 19, 43, 0.76) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.75), 0 0 20px rgba(56, 189, 248, 0.08) !important;
+}
+
+/* Card titles and body */
+.service-card h3, .work-card h3, .team-card-3d h3, .pricing-card h3, .price-card h3 {
+  color: #ffffff !important;
+}
+
+.service-card p, .work-card p, .team-card-3d p, .pricing-card p, .price-card p {
+  color: #cbd5e1 !important;
+}
+
+/* Inputs on galaxy theme */
+input, select, textarea {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #f8fafc !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #38bdf8 !important;
+  background: rgba(15, 23, 42, 0.95) !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25) !important;
+}
+
+/* Mobile Nav Drawer in Deep Space */
+@media (max-width: 991px) {
+  .nav-links {
+    background: rgba(3, 7, 18, 0.96) !important;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.25) !important;
+    backdrop-filter: blur(24px) !important;
+  }
+  .nav-links a {
+    color: #cbd5e1 !important;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: #38bdf8 !important;
+  }
 }

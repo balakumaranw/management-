@@ -799,63 +799,65 @@ function init3DMilkyWayGalaxy() {
   const ghPaletteName = document.getElementById('ghPaletteName');
   const ghMeteorBtn = document.getElementById('ghMeteorBtn');
 
-  // Camera & 3D Projection Settings
-  const fov = 700;
-  const cameraZ = 950;
-  let rotX = 0.65; // ~37 degrees default tilt
+  // Camera & 3D Astronomical Projection Settings
+  const fov = 720;
+  const cameraZ = 980;
+  let rotX = 0.58; // ~33 degrees natural celestial inclination
   let rotY = 0;
-  let rotZ = 0;
-  let targetRotX = 0.65;
-  let targetRotY = 0;
+  let targetRotX = 0.58;
 
-  // Speed Settings
-  let baseSpeed = 0.0018;
+  // Majestic Realistic Galactic Speeds
+  // Real galaxies rotate with immense cosmic inertia — calm, majestic drift
+  let baseSpeed = 0.00055;
   let speedMultiplier = 1;
   const speedModes = [
     { name: 'Cosmic 1x', mult: 1 },
-    { name: 'Fast 2.5x', mult: 2.5 },
-    { name: 'Hyper-Warp 6x', mult: 6 }
+    { name: 'Warp 2x', mult: 2 },
+    { name: 'Hyper-Warp 4x', mult: 4 }
   ];
   let speedIdx = 0;
 
   // Camera Presets
   const cameraAngles = [
-    { name: 'Oblique 3D', rotX: 0.65 },
-    { name: 'Top-Down', rotX: 1.45 },
-    { name: 'Edge-On Disc', rotX: 0.18 },
-    { name: 'Deep Flight', rotX: 0.95 }
+    { name: 'Oblique 3D', rotX: 0.58 },
+    { name: 'Galactic Plane', rotX: 0.22 },
+    { name: 'Top-Down Core', rotX: 1.35 },
+    { name: 'Deep Horizon', rotX: 0.85 }
   ];
   let angleIdx = 0;
 
-  // Color Palettes
+  // Astronomical Spectral Palettes
   const palettes = [
     {
       name: 'Solar Cyan',
-      core: ['#ffffff', '#ffebba', '#f59e0b'],
-      arms: ['#38bdf8', '#60a5fa', '#818cf8', '#a855f7'],
-      dust: 'rgba(56, 189, 248, 0.06)'
+      core: ['#ffffff', '#fff7ed', '#fef08a', '#f59e0b'],
+      arms: ['#38bdf8', '#60a5fa', '#818cf8', '#c084fc'],
+      dustRgb: '56, 189, 248',
+      dustAlpha: 0.045
     },
     {
       name: 'Cosmic Gold',
-      core: ['#ffffff', '#fffbeb', '#fde68a'],
-      arms: ['#f59e0b', '#fbbf24', '#fcd34d', '#fed7aa'],
-      dust: 'rgba(245, 158, 11, 0.06)'
+      core: ['#ffffff', '#fffbeb', '#fde68a', '#f59e0b'],
+      arms: ['#fbbf24', '#f59e0b', '#d97706', '#fed7aa'],
+      dustRgb: '245, 158, 11',
+      dustAlpha: 0.045
     },
     {
       name: 'Deep Nebula',
-      core: ['#ffffff', '#fdf4ff', '#f0abfc'],
-      arms: ['#ec4899', '#a855f7', '#6366f1', '#38bdf8'],
-      dust: 'rgba(168, 85, 247, 0.06)'
+      core: ['#ffffff', '#fdf4ff', '#f5d0fe', '#c084fc'],
+      arms: ['#f472b6', '#c084fc', '#818cf8', '#38bdf8'],
+      dustRgb: '192, 132, 252',
+      dustAlpha: 0.045
     }
   ];
   let paletteIdx = 0;
 
-  // Scroll Dynamics
+  // Smooth Astronomical Inertia & Momentum Buffer
   let lastScrollY = window.scrollY;
   let scrollVelocity = 0;
   let scrollProgress = 0;
 
-  // Mouse / Touch Parallax
+  // Gentle Mouse / Touch Parallax
   let mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
 
   function resize() {
@@ -869,28 +871,30 @@ function init3DMilkyWayGalaxy() {
   window.addEventListener('resize', resize, { passive: true });
   resize();
 
-  // Scroll Listener — directly injects 3D momentum and changes camera pitch
+  // Scroll Listener — Realistic Astronomical Inertia (No rapid jerky spins)
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
     const maxScroll = Math.max(document.body.scrollHeight - window.innerHeight, 1);
     scrollProgress = currentScrollY / maxScroll;
 
     const delta = currentScrollY - lastScrollY;
-    scrollVelocity += delta * 0.0035;
+    // Ultra-smooth, highly damped momentum (20x calmer than before)
+    scrollVelocity += delta * 0.00015;
+    // Strict astronomical velocity clamp
+    scrollVelocity = Math.max(-0.0022, Math.min(0.0022, scrollVelocity));
     lastScrollY = currentScrollY;
 
-    // Scroll-driven camera pitch transition across page sections
-    // Hero: 0.65 -> Services: 0.9 -> Our Work: 0.35 -> Team: 0.7
-    targetRotX = 0.65 + Math.sin(scrollProgress * Math.PI) * 0.45;
+    // Gentle realistic camera elevation tilt
+    targetRotX = 0.58 + scrollProgress * 0.16;
   }, { passive: true });
 
-  // Mouse Parallax
+  // Mouse Parallax with deep cosmic distance damping
   window.addEventListener('mousemove', e => {
-    mouse.targetX = (e.clientX / width - 0.5) * 0.5;
-    mouse.targetY = (e.clientY / height - 0.5) * 0.4;
+    mouse.targetX = (e.clientX / width - 0.5) * 0.28;
+    mouse.targetY = (e.clientY / height - 0.5) * 0.22;
   }, { passive: true });
 
-  // Touch Swipe on Mobile
+  // Mobile Touch Swipe
   let touchStartY = 0;
   window.addEventListener('touchstart', e => {
     if (e.touches.length > 0) touchStartY = e.touches[0].clientY;
@@ -899,82 +903,108 @@ function init3DMilkyWayGalaxy() {
   window.addEventListener('touchmove', e => {
     if (e.touches.length > 0) {
       const deltaY = e.touches[0].clientY - touchStartY;
-      scrollVelocity += -deltaY * 0.002;
+      scrollVelocity += -deltaY * 0.0001;
+      scrollVelocity = Math.max(-0.002, Math.min(0.002, scrollVelocity));
       touchStartY = e.touches[0].clientY;
-      mouse.targetX = (e.touches[0].clientX / width - 0.5) * 0.4;
+      mouse.targetX = (e.touches[0].clientX / width - 0.5) * 0.2;
     }
   }, { passive: true });
 
-  // Galaxy Particle Architecture
-  const NUM_STARS = width < 768 ? 2200 : 3800;
+  // 1. Galaxy Particle Architecture (Differential Astrophysics)
+  const NUM_STARS = width < 768 ? 2400 : 4000;
   const NUM_ARMS = 4;
-  const GALAXY_RADIUS = 780;
+  const GALAXY_RADIUS = 820;
   const stars = [];
 
   for (let i = 0; i < NUM_STARS; i++) {
-    const isCore = Math.random() < 0.28;
-    let x, y, z, colorClass, size, alpha, twinkleSpeed, twinklePhase;
+    const isCore = Math.random() < 0.26;
+    let r, theta, y, colorClass, size, alpha, twinkleSpeed, twinklePhase;
 
     if (isCore) {
-      // Dense spherical central galactic core
-      const r = Math.pow(Math.random(), 2.4) * (GALAXY_RADIUS * 0.24);
-      const theta = Math.random() * Math.PI * 2;
+      // Superdense spherical galactic core
+      r = Math.pow(Math.random(), 2.5) * (GALAXY_RADIUS * 0.22);
+      theta = Math.random() * Math.PI * 2;
       const phi = (Math.random() - 0.5) * Math.PI;
-      x = r * Math.cos(theta) * Math.cos(phi);
-      y = (r * Math.sin(phi)) * 0.5; // Flattened core
-      z = r * Math.sin(theta) * Math.cos(phi);
+      y = (r * Math.sin(phi)) * 0.45;
       colorClass = 'core';
-      size = Math.random() * 2.2 + 0.8;
+      size = Math.random() * 2.0 + 0.8;
       alpha = Math.random() * 0.5 + 0.5;
     } else {
-      // Logarithmic spiral arms
+      // 4 Logarithmic spiral arms (r = r0 * e^(k * theta))
       const armIdx = i % NUM_ARMS;
       const armBaseAngle = (armIdx / NUM_ARMS) * (Math.PI * 2);
-      const dist = Math.pow(Math.random(), 0.9) * GALAXY_RADIUS + (GALAXY_RADIUS * 0.06);
+      r = Math.pow(Math.random(), 0.92) * GALAXY_RADIUS + (GALAXY_RADIUS * 0.05);
 
-      // Logarithmic spiral math: theta = a * ln(r) + offset
-      const spiralAngle = Math.log(dist / 40) * 2.6 + armBaseAngle;
+      // Logarithmic spiral geometry
+      const spiralTheta = Math.log(r / 35) * 2.4 + armBaseAngle;
 
-      // Stellar dispersion perpendicular to arm
-      const spread = (Math.random() - 0.5) * (dist * 0.38);
+      // Realistic Gaussian stellar dispersion perpendicular to spiral arm
+      const spread = (Math.random() - 0.5) * (r * 0.32);
       const spreadAngle = Math.random() * Math.PI * 2;
 
-      x = Math.cos(spiralAngle) * dist + Math.cos(spreadAngle) * spread;
-      z = Math.sin(spiralAngle) * dist + Math.sin(spreadAngle) * spread;
+      theta = spiralTheta + (Math.sin(spreadAngle) * spread) / (r + 1);
 
-      // Disc thickness tapers towards rim
-      const maxThick = (1 - dist / GALAXY_RADIUS) * 75 + 14;
+      // Galactic disc thickness tapers from core to rim
+      const maxThick = (1 - r / GALAXY_RADIUS) * 65 + 12;
       y = (Math.random() - 0.5) * maxThick;
 
       colorClass = 'arm';
-      size = Math.random() * 1.8 + 0.5;
+      size = Math.random() * 1.6 + 0.45;
       alpha = Math.random() * 0.6 + 0.4;
     }
 
-    twinkleSpeed = Math.random() * 0.03 + 0.01;
+    twinkleSpeed = Math.random() * 0.02 + 0.008;
     twinklePhase = Math.random() * Math.PI * 2;
 
+    // Differential Keplerian / Vera Rubin flat rotation curve
+    // Inner stars complete orbits faster, outer spiral arms gracefully trail behind
+    const orbitalSpeed = (baseSpeed * (0.85 + 240 / (r + 110)));
+
     stars.push({
-      x, y, z,
+      r,
+      theta,
+      y,
       colorClass,
       size,
       alpha,
       baseAlpha: alpha,
       twinkleSpeed,
       twinklePhase,
-      distFromCenter: Math.sqrt(x * x + z * z)
+      orbitalSpeed
     });
   }
 
-  // Shooting Stars / Meteors Engine
+  // 2. Volumetric Interstellar Nebula Clouds (Soft Luminous Stardust Gas)
+  const NUM_NEBULA_CLOUDS = width < 768 ? 40 : 70;
+  const nebulaClouds = [];
+  for (let c = 0; c < NUM_NEBULA_CLOUDS; c++) {
+    const armIdx = c % NUM_ARMS;
+    const armBaseAngle = (armIdx / NUM_ARMS) * (Math.PI * 2);
+    const r = Math.pow(Math.random(), 0.85) * (GALAXY_RADIUS * 0.85) + 60;
+    const spiralTheta = Math.log(r / 35) * 2.4 + armBaseAngle + (Math.random() - 0.5) * 0.25;
+    const radius = Math.random() * 60 + 55;
+    const orbitalSpeed = (baseSpeed * (0.85 + 240 / (r + 110)));
+    const y = (Math.random() - 0.5) * 30;
+
+    nebulaClouds.push({
+      r,
+      theta: spiralTheta,
+      y,
+      radius,
+      orbitalSpeed,
+      pulsePhase: Math.random() * Math.PI * 2
+    });
+  }
+
+  // 3. Realistic Shooting Stars / Meteors
   const meteors = [];
   function spawnMeteor() {
-    if (meteors.length > 5) return;
-    const startX = (Math.random() - 0.5) * width * 1.5;
-    const startY = (Math.random() - 0.5) * height * 1.5;
-    const startZ = Math.random() * 400 - 200;
-    const angle = Math.random() * Math.PI * 0.4 + 0.6; // downward streak
-    const speed = Math.random() * 22 + 18;
+    if (meteors.length > 4) return;
+    const startX = (Math.random() - 0.5) * width * 1.4;
+    const startY = (Math.random() - 0.5) * height * 1.4;
+    const startZ = Math.random() * 300 - 150;
+    const angle = Math.random() * Math.PI * 0.35 + 0.65;
+    const speed = Math.random() * 18 + 14;
 
     meteors.push({
       x: startX,
@@ -982,15 +1012,14 @@ function init3DMilkyWayGalaxy() {
       z: startZ,
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed,
-      vz: (Math.random() - 0.5) * 5,
-      length: Math.random() * 120 + 80,
+      vz: (Math.random() - 0.5) * 4,
+      length: Math.random() * 100 + 70,
       life: 1,
       decay: Math.random() * 0.02 + 0.015,
-      color: Math.random() > 0.4 ? '#38bdf8' : '#f59e0b'
+      color: Math.random() > 0.45 ? '#38bdf8' : '#fbbf24'
     });
   }
 
-  // Auto-spawn shooting stars periodically
   let meteorTimer = 0;
 
   // Customizer Event Handlers
@@ -1022,33 +1051,25 @@ function init3DMilkyWayGalaxy() {
 
   if (ghMeteorBtn) {
     ghMeteorBtn.addEventListener('click', () => {
-      for (let m = 0; m < 3; m++) spawnMeteor();
+      for (let m = 0; m < 2; m++) spawnMeteor();
     });
   }
 
-  // 3D Render Loop
-  let frameCount = 0;
-
+  // 4. 3D Celestial Render Loop
   function render() {
-    frameCount++;
     const pal = palettes[paletteIdx];
 
-    // Smooth physics interpolation
-    rotY += baseSpeed * speedMultiplier + scrollVelocity;
-    scrollVelocity *= 0.94; // friction decay
+    // Smooth cosmic inertia & friction damping
+    scrollVelocity *= 0.92;
 
     // Mouse parallax lerp
-    mouse.x += (mouse.targetX - mouse.x) * 0.05;
-    mouse.y += (mouse.targetY - mouse.y) * 0.05;
+    mouse.x += (mouse.targetX - mouse.x) * 0.035;
+    mouse.y += (mouse.targetY - mouse.y) * 0.035;
 
-    rotX += (targetRotX - rotX) * 0.05;
+    rotX += (targetRotX - rotX) * 0.035;
 
-    // Effective 3D camera angles
+    // Effective camera pitch
     const effRotX = rotX + mouse.y;
-    const effRotY = rotY + mouse.x;
-
-    const cosY = Math.cos(effRotY);
-    const sinY = Math.sin(effRotY);
     const cosX = Math.cos(effRotX);
     const sinX = Math.sin(effRotX);
 
@@ -1057,31 +1078,72 @@ function init3DMilkyWayGalaxy() {
     const centerX = width * 0.5;
     const centerY = height * 0.5;
 
-    // Draw Core Accretion Glow with additive blending
+    // --- STEP A: Volumetric Accretion Core Singularity Glow ---
     ctx.save();
     ctx.globalCompositeOperation = 'screen';
     const coreScale = fov / cameraZ;
     const coreScreenX = centerX;
     const coreScreenY = centerY;
-    const coreRadius = Math.max(60 * coreScale, 30);
+    const coreRadius = Math.max(70 * coreScale, 35);
 
     const coreGrad = ctx.createRadialGradient(
       coreScreenX, coreScreenY, 0,
-      coreScreenX, coreScreenY, coreRadius * 2.8
+      coreScreenX, coreScreenY, coreRadius * 3.2
     );
-    coreGrad.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
-    coreGrad.addColorStop(0.2, pal.core[1] || 'rgba(254, 240, 138, 0.8)');
-    coreGrad.addColorStop(0.5, pal.core[2] || 'rgba(245, 158, 11, 0.35)');
-    coreGrad.addColorStop(0.8, pal.dust);
+    coreGrad.addColorStop(0, 'rgba(255, 255, 255, 0.98)');
+    coreGrad.addColorStop(0.18, pal.core[1] || 'rgba(254, 240, 138, 0.85)');
+    coreGrad.addColorStop(0.45, pal.core[2] || 'rgba(245, 158, 11, 0.4)');
+    coreGrad.addColorStop(0.75, 'rgba(' + pal.dustRgb + ', 0.12)');
     coreGrad.addColorStop(1, 'transparent');
 
     ctx.fillStyle = coreGrad;
     ctx.beginPath();
-    ctx.arc(coreScreenX, coreScreenY, coreRadius * 2.8, 0, Math.PI * 2);
+    ctx.arc(coreScreenX, coreScreenY, coreRadius * 3.2, 0, Math.PI * 2);
     ctx.fill();
     ctx.restore();
 
-    // Render 3D Stars with true perspective projection
+    // --- STEP B: Volumetric Interstellar Nebula Clouds (Cosmic Dust Glow) ---
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+    const numClouds = nebulaClouds.length;
+    for (let c = 0; c < numClouds; c++) {
+      const neb = nebulaClouds[c];
+      // Differential swirl
+      neb.theta += (neb.orbitalSpeed * speedMultiplier) + (scrollVelocity * (140 / (neb.r + 90)));
+
+      const x = Math.cos(neb.theta) * neb.r;
+      const z = Math.sin(neb.theta) * neb.r;
+
+      // Rotate camera elevation X
+      const y2 = neb.y * cosX - z * sinX;
+      const z2 = neb.y * sinX + z * cosX;
+
+      const depth = cameraZ + z2;
+      if (depth <= 40) continue;
+
+      const scale = fov / depth;
+      const scrX = centerX + x * scale;
+      const scrY = centerY + y2 * scale;
+
+      if (scrX < -150 || scrX > width + 150 || scrY < -150 || scrY > height + 150) continue;
+
+      neb.pulsePhase += 0.01;
+      const pulse = Math.sin(neb.pulsePhase) * 0.15 + 0.85;
+      const cloudR = Math.max(neb.radius * scale * pulse, 15);
+
+      const nGrad = ctx.createRadialGradient(scrX, scrY, 0, scrX, scrY, cloudR);
+      nGrad.addColorStop(0, 'rgba(' + pal.dustRgb + ', ' + (pal.dustAlpha * 1.5) + ')');
+      nGrad.addColorStop(0.5, 'rgba(' + pal.dustRgb + ', ' + (pal.dustAlpha * 0.7) + ')');
+      nGrad.addColorStop(1, 'transparent');
+
+      ctx.fillStyle = nGrad;
+      ctx.beginPath();
+      ctx.arc(scrX, scrY, cloudR, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
+
+    // --- STEP C: Render 3D Stars with True Differential Galactic Swirl ---
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
 
@@ -1089,20 +1151,22 @@ function init3DMilkyWayGalaxy() {
     for (let i = 0; i < numStars; i++) {
       const s = stars[i];
 
-      // 1. Rotate around Y axis (galactic spin)
-      const x1 = s.x * cosY - s.z * sinY;
-      const z1 = s.x * sinY + s.z * cosY;
+      // Update differential orbital angle based on distance from core + smooth scroll buffer
+      s.theta += (s.orbitalSpeed * speedMultiplier) + (scrollVelocity * (140 / (s.r + 90)));
 
-      // 2. Rotate around X axis (camera inclination pitch)
-      const y2 = s.y * cosX - z1 * sinX;
-      const z2 = s.y * sinX + z1 * cosX;
+      const x = Math.cos(s.theta) * s.r;
+      const z = Math.sin(s.theta) * s.r;
+
+      // 3D camera elevation pitch rotation around X axis
+      const y2 = s.y * cosX - z * sinX;
+      const z2 = s.y * sinX + z * cosX;
 
       // Depth culling
       const depth = cameraZ + z2;
       if (depth <= 20) continue;
 
       const scale = fov / depth;
-      const screenX = centerX + x1 * scale;
+      const screenX = centerX + x * scale;
       const screenY = centerY + y2 * scale;
 
       // Viewport frustum culling
@@ -1113,15 +1177,15 @@ function init3DMilkyWayGalaxy() {
       // Star twinkle modulation
       s.twinklePhase += s.twinkleSpeed;
       const twinkle = Math.sin(s.twinklePhase) * 0.35 + 0.65;
-      const alpha = Math.min(s.baseAlpha * twinkle * (scale * 1.2), 1);
-      const starR = Math.max(s.size * scale, 0.4);
+      const alpha = Math.min(s.baseAlpha * twinkle * (scale * 1.25), 1);
+      const starR = Math.max(s.size * scale, 0.42);
 
-      // Color selection from active palette
+      // Color from active astronomical palette
       let colorStr;
       if (s.colorClass === 'core') {
         colorStr = pal.core[i % pal.core.length];
       } else {
-        const colorIdx = Math.floor((s.distFromCenter / GALAXY_RADIUS) * pal.arms.length);
+        const colorIdx = Math.floor((s.r / GALAXY_RADIUS) * pal.arms.length);
         colorStr = pal.arms[Math.min(colorIdx, pal.arms.length - 1)];
       }
 
@@ -1133,9 +1197,9 @@ function init3DMilkyWayGalaxy() {
     }
     ctx.restore();
 
-    // Render Shooting Stars / Meteors
+    // --- STEP D: Render Shooting Stars / Meteors ---
     meteorTimer++;
-    if (meteorTimer > 280) {
+    if (meteorTimer > 320) {
       spawnMeteor();
       meteorTimer = 0;
     }
@@ -1170,16 +1234,15 @@ function init3DMilkyWayGalaxy() {
         mGrad.addColorStop(1, 'transparent');
 
         ctx.strokeStyle = mGrad;
-        ctx.lineWidth = Math.max(2.5 * metScale, 1.2);
+        ctx.lineWidth = Math.max(2.2 * metScale, 1.2);
         ctx.beginPath();
         ctx.moveTo(scrX1, scrY1);
         ctx.lineTo(scrX2, scrY2);
         ctx.stroke();
 
-        // Glowing meteor head
         ctx.fillStyle = '#ffffff';
         ctx.beginPath();
-        ctx.arc(scrX1, scrY1, Math.max(3 * metScale, 1.5), 0, Math.PI * 2);
+        ctx.arc(scrX1, scrY1, Math.max(2.8 * metScale, 1.4), 0, Math.PI * 2);
         ctx.fill();
       }
       ctx.restore();
